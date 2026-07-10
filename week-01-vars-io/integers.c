@@ -149,7 +149,9 @@ int main(int argc, char * argv[]) {
 	
 	printf("Here is '6' - '0': %d\n", char_num);
 	printf("Here is whatever it is in ASCII multipleid by 10: %d\n", char_num * 10);
-	
+
+	// Need to mention, that the character is written inside single '' not "".
+	// The second option is considered a string. It automatically adds /0 to the end, making it 1B longer.
 	
 	return 0;
 }
