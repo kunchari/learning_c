@@ -1,3 +1,4 @@
+#include <float.h>
 #include <stdio.h>
 #include <limits.h>
 #include <math.h>
@@ -9,6 +10,7 @@
 int main(int argc, char * argv[]) {
 
 	/*FLOAT*/
+	printf("Floating pointer number [float]: \n\n");
 	
 	float floating;
 	/* ^ float is a floating point number of 4 bytes.
@@ -21,15 +23,16 @@ int main(int argc, char * argv[]) {
 	
 	float floating_1 = 42;
 	float floating_2 = -3.141592;
-	float floating_min = LONG_MIN;
-	float floating_max = LONG_MAX;
+	float floating_min = FLT_MIN;
+	float floating_max = FLT_MAX;
 	float floating_3 = 0.111111111111111111111111111;
 	// ^float decimal error (not enough space to save the "tail")
 	// Can get values NaN and Inf, though are mostly not allowed (showed as errors)
 	
 	printf("Uninitialized float: %f\n", floating);
-	printf("Normal possible values: \n1. Possitive: %f\n2. Negative: %.10f\n3. Max value: %f\n4. Min value %f\n", 
-			floating_1, floating_2, floating_max, floating_min);
+	printf("Normal possible values: \n1. Possitive: %f\n2. Negative: %.10f\n",
+			floating_1, floating_2);
+	printf("3. Max value: %e\n4. Smallest positive %e\n", floating_max, floating_min);
 	printf("Not enough space: %.15f\n", floating_3);
 	
 	// Need to mention that %f is used for float and double (shows about 6 numbers after .)
@@ -54,11 +57,39 @@ int main(int argc, char * argv[]) {
 	
 	printf("\nTrying to compare using epsilon: \n");
 	
-	if (fabs((a + b)) - 0.3 < EPSILON ) {
+	if (fabs((a + b) - 0.3) < EPSILON ) {
 		printf("Good!\n");
 	} else {
 		printf("Nope!\n");
 	}
+
+	/*DOUBLE*/
+	printf("\nDouble floating pointer [double]: \n\n");
+
+	double double_num = 42.002;
+	// ^ this is double the size of float. It's size is 8 bytes.
+	// Signed (1b), Exponent (11b) (bias + 1023), Mantissa (52b)
+
+	double double_tail	=	0.111111111111111111111111111;
+	double double_max	=	DBL_MAX;
+	double double_min	=	DBL_MIN;
+
+	printf("This is double: %lf\n", double_num);
+	printf("Double has longer tail: %.20lf\n", double_tail);
+	printf("Biggest possible double: %e\n", double_max);
+	printf("Smallest positive double: %e\n", double_min);
+	//^ uses %lf as long float
+
+	/* LONG DOUBLE */
+	printf("\nLong double floating pointer [long double]: \n\n");
+
+	long double huge_pi = 3.14159265358979323846L;
+	long double max_ld = LDBL_MAX;
+	// ^basically the same as double, on Linux 16B, can vary on other systems (Windows - 8B)
+
+	printf("Long double PI: %.25Lf\n", huge_pi);
+	printf("Max long double: %Le\n", max_ld);
+	// ^almost e+4932 on Linux!
 	
 	return 0;
 	}
