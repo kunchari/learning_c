@@ -48,4 +48,21 @@ void file() {
         printf("Error: file do not exist");
         return;
     }
+
+    FILE * another = freopen("example.txt", "r", stdin);
+    // works as fopen but changes stream flow.
+    // on error ignores, on not null - opens
+    // it may also reopen already open file or stdout
+
+    if (another == NULL) {
+        printf("Error: file do not exist");
+        return;
+    }
+    char c;
+    scanf("%c", &c);
+    printf("Read first character: %c\n", c);
+
+
+
+
 }
