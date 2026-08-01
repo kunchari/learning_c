@@ -73,8 +73,9 @@ void file() {
     if (write_file != NULL) {
         fprintf(write_file, "Important message!\n");
         fflush(write_file);
-        // ^ funtction fflush forces to flush the buffer before waiting to fill
-        // files or common streams are not allowed to be flushed - undefined behaviour
+        // ^ funtction fflush forces to flush the buffer before waiting to fill. Returns 0 on success.
+        // files or common streams are not allowed to be flushed - undefined behaviour.
+        // fflush(NULL) <- flushes every buffer.
         fclose(write_file);
     }
 }
