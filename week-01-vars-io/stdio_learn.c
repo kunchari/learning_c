@@ -18,4 +18,14 @@ void file() {
     // 4. Indicators (error and EOF bits)
     // 5. File position indicator
     // Also there is a wide/narrow character and their funtions cannot be mixed.
+
+    /*
+     * stdin    -   standard input stream, reads conventional input.
+     * stdout   -   standard output stream, writes conventional output
+     * stderr   -   standard error stream, writes diagnostic output
+     *
+     * Both stdin and stdout at program startup are fully buffered if and only if the stream can be determined
+     *      to not refer to an interactive device. The stderr at the start is not fully buffered
+     * In POSIX stdin and stdout are line-buffered when terminal and stderr is unbuffered.
+     */
 }
