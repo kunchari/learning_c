@@ -11,7 +11,11 @@ void file() {
     FILE * file = fopen("example.txt", "r");
     // ^ FILE is a complex data structure used as pointer to files.
     // Copying with  FILE f = * file is NOT allowed!
-    // It keeps (including POSIX file descriptor):
-    // 1. Character width
-    // 2.
+    // Stores:
+    // 1. Posix file discriptor (number for system to find)
+    // 2. Buffering state: full buffered (waits all), line-buffered (waits '\n', stdout), unbuffered (stderr)
+    // 3. Remembers I/O mode and binary/text. Here I open in read 'r'
+    // 4. Indicators (error and EOF bits)
+    // 5. File position indicator
+    // Also there is a wide/narrow character and their funtions cannot be mixed.
 }
