@@ -21,8 +21,8 @@ void file() {
 
     /*
      * stdin    -   standard input stream, reads conventional input.
-     * stdout   -   standard output stream, writes conventional output
-     * stderr   -   standard error stream, writes diagnostic output
+     * stdout   -   standard output stream, writes conventional output.
+     * stderr   -   standard error stream, writes diagnostic output. (Needs to throw immediately)
      *
      * Both stdin and stdout at program startup are fully buffered if and only if the stream can be determined
      *      to not refer to an interactive device. The stderr at the start is not fully buffered
