@@ -62,7 +62,10 @@ void file() {
     scanf("%c", &c);
     printf("Read first character: %c\n", c);
 
-
+    fclose(file);
+    fclose(another);
+    // ^ Closes the given file stream.
+    // Any unwritten buffered data are flushed to the OS. Any unread buffered data are discarded.
 
 
 }
