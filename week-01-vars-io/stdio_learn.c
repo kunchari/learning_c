@@ -53,6 +53,8 @@ void file() {
     // works as fopen but changes stream flow.
     // on error ignores, on not null - opens
     // it may also reopen already open file or stdout
+    // If NULL - changes mode of the previously open file
+    // freopen is the only way to change the narrow/wide once it has been established by an I/O operation or by fwide.
 
     if (another == NULL) {
         printf("Error: file do not exist");
