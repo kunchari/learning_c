@@ -31,4 +31,13 @@ void file() {
      *      to not refer to an interactive device. The stderr at the start is not fully buffered
      * In POSIX stdin and stdout are line-buffered when terminal and stderr is unbuffered.
      */
+
+    file = fopen("example.txt", "r+");
+    // fopen is a function that opens a file, takes filename and a mode.
+    // Filename - may include absolute or relative filesystem path. 
+    // Mode shows access to file. Read, write, append. More on https://en.cppreference.com/c/io/fopen
+    // If tries to read non-existing - throughs error, other way creates a new file.
+    // Also mode "b" allows in binary. No effect on POSIX, on Windows ignores '\n'
+    // Extended '+' requires to be careful with streamptr
+    // Mode 'x' with 'w' returns error if the file exists instead of overwriting
 }
