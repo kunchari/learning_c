@@ -69,5 +69,12 @@ void file() {
     // ^ Closes the given file stream.
     // Any unwritten buffered data are flushed to the OS. Any unread buffered data are discarded.
 
-
+    FILE * write_file = fopen("output.txt", "w");
+    if (write_file != NULL) {
+        fprintf(write_file, "Important message!\n");
+        fflush(write_file);
+        // ^ funtction fflush forces to flush the buffer before waiting to fill
+        // files or common streams are not allowed to be flushed - undefined behaviour
+        fclose(write_file);
+    }
 }
