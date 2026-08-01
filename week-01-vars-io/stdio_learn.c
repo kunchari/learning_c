@@ -40,4 +40,9 @@ void file() {
     // Also mode "b" allows in binary. No effect on POSIX, on Windows ignores '\n'
     // Extended '+' requires to be careful with streamptr
     // Mode 'x' with 'w' returns error if the file exists instead of overwriting
+
+    if (file == NULL) {
+        printf("Error: file do not exist");
+        return;
+    }
 }
