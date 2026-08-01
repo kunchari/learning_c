@@ -33,13 +33,16 @@ void file() {
      */
 
     file = fopen("example.txt", "r+");
-    // fopen is a function that opens a file, takes filename and a mode.
-    // Filename - may include absolute or relative filesystem path. 
-    // Mode shows access to file. Read, write, append. More on https://en.cppreference.com/c/io/fopen
-    // If tries to read non-existing - throughs error, other way creates a new file.
-    // Also mode "b" allows in binary. No effect on POSIX, on Windows ignores '\n'
-    // Extended '+' requires to be careful with streamptr
-    // Mode 'x' with 'w' returns error if the file exists instead of overwriting
+    /*
+     * fopen is a function that opens a file, takes filename and a mode.
+     * Returns pointer to the new file stream, on error returns null pointer
+     * Filename - may include absolute or relative filesystem path.
+     * Mode shows access to file. Read, write, append. More on https://en.cppreference.com/c/io/fopen
+     * If tries to read non-existing - throughs error, other way creates a new file.
+     * Also mode "b" allows in binary. No effect on POSIX, on Windows ignores '\n'
+     * Extended '+' requires to be careful with streamptr
+     * Mode 'x' with 'w' returns error if the file exists instead of overwriting
+     */
 
     if (file == NULL) {
         printf("Error: file do not exist");
